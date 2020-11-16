@@ -1,7 +1,7 @@
 node {
 
 stage('SCM'){
- git 'https://github.com/adaming-laurent/firstProjectDevOps'
+ git 'https://github.com/adaming-laurent/projectBank'
 }
 
 stage('Compile'){
