@@ -21,10 +21,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 @JsonSubTypes({@JsonSubTypes.Type(value = CompteEpargne.class, name = "epargne"), @JsonSubTypes.Type(value = CompteCourant.class, name = "courant")})
 public class Compte implements Serializable{
 
-	//Attributes
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
@@ -32,10 +28,6 @@ public class Compte implements Serializable{
 	private Date dateCreation;
 	private double solde;
 	
-//	@ManyToOne  @JoinColumn( name="idUtilisateur" )
-//    private Utilisateur utilisateur;
-	
-	//Constructors
 	public Compte() {
 		super();
 	}
@@ -45,7 +37,6 @@ public class Compte implements Serializable{
 		this.solde = solde;
 	}
 	
-	//Getters and setters
 	public Long getIdCompte() {
 		return idCompte;
 	}
@@ -68,7 +59,6 @@ public class Compte implements Serializable{
 		return serialVersionUID;
 	}
 	
-	//ToString
 	@Override
 	public String toString() {
 		return "Compte [idCompte=" + idCompte + ", dateCreation=" + dateCreation + ", solde=" + solde + "]";

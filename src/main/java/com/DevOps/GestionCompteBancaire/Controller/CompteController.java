@@ -6,10 +6,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.DevOps.GestionCompteBancaire.Entities.Compte;
 import com.DevOps.GestionCompteBancaire.Services.ICompteService;
@@ -21,26 +23,27 @@ public class CompteController {
 	@Autowired
 	ICompteService compteService;
 	
-	@RequestMapping(value="/compte",method=RequestMethod.POST)
+	@PostMapping("/compte")
 	public Compte save(@RequestBody Compte compte) {
 		return compteService.save(compte);
 	}
 	
-	@RequestMapping(value = "/compte",method = RequestMethod.GET)
+	@GetMapping("/compte")
 	public List<Compte> findComptes(){
 		return compteService.findComptes();
 	}
 	
-	@RequestMapping(value = "/compte/{id}", method = RequestMethod.GET)
+	@GetMapping("/compte/{id}")
 	public Optional<Compte> findCompteById(@PathVariable("id") Long id){
 		return compteService.findCompteById(id);
 	}
 	
-	@RequestMapping(value = "/compte/{id}", method = RequestMethod.DELETE)
+	@DeleteMapping("/compte/{id}")
 	public void deleteCompteById(@PathVariable("id") Long id) {
 		compteService.deleteCompteById(id);
 	}
 	
+	@PutMapping("/compte/{id}")
 	public Compte updateCompte(@PathVariable("id") Long id, @RequestBody Compte compte) {
 		Compte currentCompte = compteService.findCompte(id);
 		currentCompte.setDateCreation(compte.getDateCreation());

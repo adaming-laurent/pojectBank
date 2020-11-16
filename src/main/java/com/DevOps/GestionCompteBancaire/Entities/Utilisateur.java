@@ -13,9 +13,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Utilisateur implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +27,6 @@ public class Utilisateur implements Serializable{
 	)
 	private List<Compte> comptes;
 	
-	//Constructors
 	public Utilisateur() {
 		super();
 	}
@@ -46,7 +42,6 @@ public class Utilisateur implements Serializable{
 		this.comptes = comptes;
 	}
 	
-	//Getters and setters
 	public Long getIdUtilisateur() {
 		return idUtilisateur;
 	}
@@ -76,7 +71,6 @@ public class Utilisateur implements Serializable{
 		this.comptes = comptes;
 	}
 	
-	//ToString
 	@Override
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur
