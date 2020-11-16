@@ -28,7 +28,7 @@ public class UtilisateurController {
 		return utilisateurService.save(utilisateur);
 	}
 	
-	@GetMapping("/utilsateur")
+	@GetMapping("/utilisateur")
 	public List<Utilisateur> findUtilisateurs(){
 		return utilisateurService.findUtilisateurs();
 	}
